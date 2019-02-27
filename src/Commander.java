@@ -1,3 +1,6 @@
+import creator.AssaultCreator;
+import creator.Creator;
+import creator.EngineerCreator;
 import solider.ISolider;
 
 public final class Commander {
@@ -16,7 +19,18 @@ public final class Commander {
         return major;
     }
 
-    public void recruting(ISolider solider){
-        System.out.println(solider.getName() + " : " + solider.getWeapon());
+    public void recruting(String typeS){
+        if(typeS.equals("Assault")){
+            Creator creator = new AssaultCreator();
+            ISolider solider = creator.createSolider();
+            System.out.println(solider.getName() + " : "+ solider.getWeapon());
+        }
+        if(typeS.equals("Engineer")){
+            Creator creator = new EngineerCreator();
+            ISolider solider = creator.createSolider();
+            System.out.println(solider.getName() + " : "+ solider.getWeapon());
+
+        }
+
     }
 }
